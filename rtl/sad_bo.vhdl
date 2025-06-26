@@ -77,7 +77,8 @@ end entity;
 
 architecture structure OF sad_bo is
     -- signals SAD
-    signal saidaRegA, saidaRegB, saidaAbs : unsigned(CFG.bits_per_sample - 1 downto 0); -- registradores que armazenam os valores de entrada A e B e a diferença absoluta
+    signal saidaRegA, saidaRegB : unsigned(CFG.bits_per_sample - 1 downto 0); -- registradores que armazenam os valores de entrada A e B e a diferença absoluta
+    signal saidaAbs : unsigned(CFG.bits_per_sample * 2 + 1 downto 0); -- registrador que armazena a diferença absoluta, com o dobro de bits para evitar overflow
     signal entradaSomaAcumulativa, saidaRegSoma, sadUnsigned : unsigned(partial_sad_length (CFG.bits_per_sample, CFG.samples_per_block) - 1 downto 0); -- registrador que armazena a soma acumulativa e o valor final da SAD
     signal saidaSoma : unsigned(partial_sad_length (CFG.bits_per_sample, CFG.samples_per_block) downto 0); -- registrador que armazena a soma temporária
     signal saidaMuxSoma, saidaSomareduzida : std_logic_vector (partial_sad_length (CFG.bits_per_sample, CFG.samples_per_block) - 1 downto 0); -- saída do mux que seleciona entre '0' e o valor resultante do somador, e a saída reduzida para o tamanho correto
@@ -112,7 +113,7 @@ begin
     );
 
     -- RETIREI O ABS_DIFFERENCE, E COLOQUEI A DIFERENÇA DIRETA, POIS O ABS_DIFFERENCE NÃO É NECESSÁRIO PARA O CÁLCULO DO SSD.
-    squareDifference : entity work.square_difference(structure) 
+    squareDifference : entity work.square_difference(behavior) 
     generic map (
         N => CFG.bits_per_sample
     )

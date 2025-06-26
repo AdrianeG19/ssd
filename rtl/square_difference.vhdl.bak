@@ -10,7 +10,7 @@ entity square_difference is
     port (
         input_a : in unsigned(N-1 downto 0);
         input_b : in unsigned(N-1 downto 0);
-        sq_diff : out unsigned(2*N + 1 downto 0)
+        sq_diff : out unsigned(2*N-1 downto 0)
     );
 end entity;
 
