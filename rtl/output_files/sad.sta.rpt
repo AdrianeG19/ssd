@@ -1,0 +1,1311 @@
+TimeQuest Timing Analyzer report for sad
+Thu Jun 26 00:28:45 2025
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'clk'
+ 12. Slow Model Hold: 'clk'
+ 13. Slow Model Minimum Pulse Width: 'clk'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'clk'
+ 24. Fast Model Hold: 'clk'
+ 25. Fast Model Minimum Pulse Width: 'clk'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; sad                                                               ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C5AF256A7                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 169.32 MHz ; 169.32 MHz      ; clk        ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------+
+; Slow Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -4.906 ; -110.602      ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Slow Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.460 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.631 ; -71.285               ;
++-------+--------+-----------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'clk'                                                                                                                                                                ;
++--------+--------------------------------------------------+------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                        ; To Node                                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------------------+------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -4.906 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.944      ;
+; -4.824 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.862      ;
+; -4.760 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.798      ;
+; -4.742 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.780      ;
+; -4.722 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.760      ;
+; -4.694 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.732      ;
+; -4.678 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.716      ;
+; -4.660 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.698      ;
+; -4.650 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.688      ;
+; -4.640 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.678      ;
+; -4.612 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.650      ;
+; -4.604 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.642      ;
+; -4.596 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.634      ;
+; -4.578 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.616      ;
+; -4.568 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.606      ;
+; -4.558 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.596      ;
+; -4.556 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.594      ;
+; -4.530 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.568      ;
+; -4.522 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.560      ;
+; -4.514 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.552      ;
+; -4.496 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.534      ;
+; -4.486 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.524      ;
+; -4.476 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.514      ;
+; -4.474 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.512      ;
+; -4.465 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.503      ;
+; -4.462 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.500      ;
+; -4.448 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.486      ;
+; -4.440 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.478      ;
+; -4.432 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.470      ;
+; -4.430 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.468      ;
+; -4.404 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.442      ;
+; -4.394 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.432      ;
+; -4.392 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.430      ;
+; -4.383 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.421      ;
+; -4.380 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.418      ;
+; -4.366 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.404      ;
+; -4.358 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.396      ;
+; -4.352 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.390      ;
+; -4.350 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.388      ;
+; -4.348 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.386      ;
+; -4.322 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.360      ;
+; -4.320 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.358      ;
+; -4.316 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.354      ;
+; -4.312 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.350      ;
+; -4.310 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.348      ;
+; -4.306 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.344      ;
+; -4.301 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.339      ;
+; -4.298 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.336      ;
+; -4.284 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.322      ;
+; -4.276 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.314      ;
+; -4.270 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.308      ;
+; -4.266 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.304      ;
+; -4.240 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.278      ;
+; -4.238 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.276      ;
+; -4.228 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.266      ;
+; -4.224 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.262      ;
+; -4.219 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.257      ;
+; -4.216 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.254      ;
+; -4.197 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.235      ;
+; -4.194 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.232      ;
+; -4.188 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.226      ;
+; -4.184 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.222      ;
+; -4.170 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.208      ;
+; -4.157 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.195      ;
+; -4.156 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.194      ;
+; -4.146 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.184      ;
+; -4.142 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.180      ;
+; -4.137 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.175      ;
+; -4.134 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.172      ;
+; -4.115 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.153      ;
+; -4.106 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.144      ;
+; -4.104 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.142      ;
+; -4.102 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.140      ;
+; -4.075 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.113      ;
+; -4.074 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.112      ;
+; -4.060 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.098      ;
+; -4.055 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.093      ;
+; -4.052 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.090      ;
+; -4.051 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.089      ;
+; -4.048 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.086      ;
+; -4.033 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.071      ;
+; -4.024 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.062      ;
+; -4.020 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.058      ;
+; -4.005 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.043      ;
+; -3.993 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 5.031      ;
+; -3.992 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.030      ;
+; -3.985 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.023      ;
+; -3.978 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.016      ;
+; -3.976 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.014      ;
+; -3.969 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.007      ;
+; -3.966 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 5.004      ;
+; -3.951 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]  ; clk          ; clk         ; 1.000        ; -0.001     ; 4.989      ;
+; -3.942 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 4.980      ;
+; -3.917 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 4.955      ;
+; -3.911 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 4.949      ;
+; -3.910 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 4.948      ;
+; -3.903 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]  ; clk          ; clk         ; 1.000        ; -0.001     ; 4.941      ;
+; -3.896 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 4.934      ;
+; -3.894 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 4.932      ;
+; -3.887 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]  ; clk          ; clk         ; 1.000        ; -0.001     ; 4.925      ;
++--------+--------------------------------------------------+------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'clk'                                                                                                                                                                          ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                               ; To Node                                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.460 ; sad_bc:blococontrole|current_state.S0                   ; sad_bc:blococontrole|current_state.S0                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.756      ;
+; 0.643 ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.939      ;
+; 0.653 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; sad_bc:blococontrole|current_state.S3                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.949      ;
+; 0.655 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; sad_bc:blococontrole|current_state.S5                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.951      ;
+; 0.655 ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; sad_bo:blocooperador|unsigned_register:regSAD|q[11]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.951      ;
+; 0.659 ; sad_bc:blococontrole|current_state.S3                   ; sad_bc:blococontrole|current_state.S4                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.955      ;
+; 0.765 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSAD|q[10]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.061      ;
+; 0.887 ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; sad_bo:blocooperador|unsigned_register:regSAD|q[12]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.183      ;
+; 0.891 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[9]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.187      ;
+; 0.894 ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[2]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.190      ;
+; 0.896 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[3]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.192      ;
+; 0.902 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[1]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.198      ;
+; 0.921 ; sad_bc:blococontrole|current_state.S0                   ; sad_bc:blococontrole|current_state.S1                   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.217      ;
+; 0.944 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.240      ;
+; 0.944 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.240      ;
+; 0.944 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.240      ;
+; 0.944 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.240      ;
+; 0.944 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.240      ;
+; 0.944 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.240      ;
+; 0.944 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.240      ;
+; 0.951 ; sad_bc:blococontrole|current_state.S5                   ; sad_bc:blococontrole|current_state.S0                   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.247      ;
+; 0.983 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[7]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.279      ;
+; 0.983 ; sad_bc:blococontrole|current_state.S2                   ; sad_bc:blococontrole|current_state.S5                   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.279      ;
+; 1.002 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.298      ;
+; 1.003 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.299      ;
+; 1.007 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.303      ;
+; 1.007 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.303      ;
+; 1.008 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.304      ;
+; 1.010 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.306      ;
+; 1.011 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.307      ;
+; 1.012 ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.308      ;
+; 1.013 ; sad_bc:blococontrole|current_state.S2                   ; sad_bc:blococontrole|current_state.S3                   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.309      ;
+; 1.016 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.312      ;
+; 1.035 ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[6]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.331      ;
+; 1.035 ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; sad_bo:blocooperador|unsigned_register:regSAD|q[13]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.331      ;
+; 1.040 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[8]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.336      ;
+; 1.042 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[4]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.338      ;
+; 1.043 ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[5]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.339      ;
+; 1.044 ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[0]      ; clk          ; clk         ; 0.000        ; 0.000      ; 1.340      ;
+; 1.053 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.349      ;
+; 1.053 ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.349      ;
+; 1.053 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.349      ;
+; 1.055 ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.351      ;
+; 1.057 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.353      ;
+; 1.057 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.353      ;
+; 1.057 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.353      ;
+; 1.057 ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.353      ;
+; 1.291 ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.587      ;
+; 1.383 ; sad_bc:blococontrole|current_state.S4                   ; sad_bc:blococontrole|current_state.S2                   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.679      ;
+; 1.449 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.745      ;
+; 1.454 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.750      ;
+; 1.454 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.750      ;
+; 1.455 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.751      ;
+; 1.458 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.754      ;
+; 1.459 ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.755      ;
+; 1.462 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.758      ;
+; 1.463 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.759      ;
+; 1.501 ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.797      ;
+; 1.501 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.797      ;
+; 1.501 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.797      ;
+; 1.501 ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.797      ;
+; 1.502 ; sad_bc:blococontrole|current_state.S1                   ; sad_bc:blococontrole|current_state.S2                   ; clk          ; clk         ; 0.000        ; 0.000      ; 1.798      ;
+; 1.505 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.801      ;
+; 1.505 ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.801      ;
+; 1.505 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.801      ;
+; 1.505 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.801      ;
+; 1.531 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.827      ;
+; 1.536 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.832      ;
+; 1.536 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.832      ;
+; 1.537 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.833      ;
+; 1.540 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.836      ;
+; 1.541 ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.837      ;
+; 1.544 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.840      ;
+; 1.545 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.841      ;
+; 1.554 ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.850      ;
+; 1.560 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.856      ;
+; 1.583 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.879      ;
+; 1.583 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.879      ;
+; 1.583 ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.879      ;
+; 1.587 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.883      ;
+; 1.587 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.883      ;
+; 1.613 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.909      ;
+; 1.618 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.914      ;
+; 1.618 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.914      ;
+; 1.622 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.918      ;
+; 1.626 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.922      ;
+; 1.627 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.923      ;
+; 1.642 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.938      ;
+; 1.665 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.961      ;
+; 1.665 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.961      ;
+; 1.669 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.965      ;
+; 1.669 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; clk          ; clk         ; 0.000        ; 0.000      ; 1.965      ;
+; 1.681 ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; clk          ; clk         ; 0.000        ; 0.000      ; 1.977      ;
+; 1.695 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.991      ;
+; 1.700 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 1.996      ;
+; 1.704 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 2.000      ;
+; 1.708 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 2.004      ;
+; 1.709 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 2.005      ;
+; 1.724 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; clk          ; clk         ; 0.000        ; 0.000      ; 2.020      ;
+; 1.737 ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 2.033      ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'clk'                                                                                                    ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                                  ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------------+
+; -1.631 ; 1.000        ; 2.631          ; Port Rate        ; clk   ; Rise       ; clk                                                     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S0                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S0                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S1                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S1                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S2                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S2                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S3                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S3                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S4                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S4                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S5                   ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S5                   ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[0]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[0]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[1]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[1]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[2]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[2]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[3]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[3]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[4]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[4]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[5]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[5]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[6]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[6]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[7]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[7]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[0]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[0]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[1]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[1]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[2]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[2]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[3]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[3]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[4]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[4]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[5]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[5]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[6]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[6]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[7]        ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[7]        ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[0]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[0]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[10]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[10]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[11]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[11]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[12]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[12]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[13]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[13]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[1]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[1]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[2]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[2]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[3]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[3]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[4]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[4]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[5]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[5]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[6]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[6]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[7]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[7]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[8]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[8]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[9]      ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[9]      ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ;
+; -0.611 ; 0.500        ; 1.111          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ;
+; -0.611 ; 0.500        ; 1.111          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Setup Times                                                                ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; enable         ; clk        ; 3.934 ; 3.934 ; Rise       ; clk             ;
+; sample_can[*]  ; clk        ; 4.876 ; 4.876 ; Rise       ; clk             ;
+;  sample_can[0] ; clk        ; 4.288 ; 4.288 ; Rise       ; clk             ;
+;  sample_can[1] ; clk        ; 0.408 ; 0.408 ; Rise       ; clk             ;
+;  sample_can[2] ; clk        ; 4.645 ; 4.645 ; Rise       ; clk             ;
+;  sample_can[3] ; clk        ; 4.049 ; 4.049 ; Rise       ; clk             ;
+;  sample_can[4] ; clk        ; 3.959 ; 3.959 ; Rise       ; clk             ;
+;  sample_can[5] ; clk        ; 4.876 ; 4.876 ; Rise       ; clk             ;
+;  sample_can[6] ; clk        ; 3.930 ; 3.930 ; Rise       ; clk             ;
+;  sample_can[7] ; clk        ; 4.024 ; 4.024 ; Rise       ; clk             ;
+; sample_ori[*]  ; clk        ; 4.305 ; 4.305 ; Rise       ; clk             ;
+;  sample_ori[0] ; clk        ; 4.180 ; 4.180 ; Rise       ; clk             ;
+;  sample_ori[1] ; clk        ; 0.468 ; 0.468 ; Rise       ; clk             ;
+;  sample_ori[2] ; clk        ; 3.991 ; 3.991 ; Rise       ; clk             ;
+;  sample_ori[3] ; clk        ; 4.282 ; 4.282 ; Rise       ; clk             ;
+;  sample_ori[4] ; clk        ; 4.305 ; 4.305 ; Rise       ; clk             ;
+;  sample_ori[5] ; clk        ; 4.305 ; 4.305 ; Rise       ; clk             ;
+;  sample_ori[6] ; clk        ; 3.951 ; 3.951 ; Rise       ; clk             ;
+;  sample_ori[7] ; clk        ; 3.975 ; 3.975 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Hold Times                                                                   ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; enable         ; clk        ; -3.676 ; -3.676 ; Rise       ; clk             ;
+; sample_can[*]  ; clk        ; -0.151 ; -0.151 ; Rise       ; clk             ;
+;  sample_can[0] ; clk        ; -4.031 ; -4.031 ; Rise       ; clk             ;
+;  sample_can[1] ; clk        ; -0.151 ; -0.151 ; Rise       ; clk             ;
+;  sample_can[2] ; clk        ; -4.388 ; -4.388 ; Rise       ; clk             ;
+;  sample_can[3] ; clk        ; -3.792 ; -3.792 ; Rise       ; clk             ;
+;  sample_can[4] ; clk        ; -3.702 ; -3.702 ; Rise       ; clk             ;
+;  sample_can[5] ; clk        ; -4.619 ; -4.619 ; Rise       ; clk             ;
+;  sample_can[6] ; clk        ; -3.673 ; -3.673 ; Rise       ; clk             ;
+;  sample_can[7] ; clk        ; -3.767 ; -3.767 ; Rise       ; clk             ;
+; sample_ori[*]  ; clk        ; -0.211 ; -0.211 ; Rise       ; clk             ;
+;  sample_ori[0] ; clk        ; -3.923 ; -3.923 ; Rise       ; clk             ;
+;  sample_ori[1] ; clk        ; -0.211 ; -0.211 ; Rise       ; clk             ;
+;  sample_ori[2] ; clk        ; -3.734 ; -3.734 ; Rise       ; clk             ;
+;  sample_ori[3] ; clk        ; -4.025 ; -4.025 ; Rise       ; clk             ;
+;  sample_ori[4] ; clk        ; -4.048 ; -4.048 ; Rise       ; clk             ;
+;  sample_ori[5] ; clk        ; -4.048 ; -4.048 ; Rise       ; clk             ;
+;  sample_ori[6] ; clk        ; -3.694 ; -3.694 ; Rise       ; clk             ;
+;  sample_ori[7] ; clk        ; -3.718 ; -3.718 ; Rise       ; clk             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Clock to Output Times                                                      ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; address[*]     ; clk        ; 7.087 ; 7.087 ; Rise       ; clk             ;
+;  address[0]    ; clk        ; 7.087 ; 7.087 ; Rise       ; clk             ;
+;  address[1]    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+;  address[2]    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+;  address[3]    ; clk        ; 6.774 ; 6.774 ; Rise       ; clk             ;
+;  address[4]    ; clk        ; 7.085 ; 7.085 ; Rise       ; clk             ;
+;  address[5]    ; clk        ; 6.782 ; 6.782 ; Rise       ; clk             ;
+; done           ; clk        ; 7.057 ; 7.057 ; Rise       ; clk             ;
+; read_mem       ; clk        ; 6.819 ; 6.819 ; Rise       ; clk             ;
+; sad_value[*]   ; clk        ; 7.095 ; 7.095 ; Rise       ; clk             ;
+;  sad_value[0]  ; clk        ; 6.767 ; 6.767 ; Rise       ; clk             ;
+;  sad_value[1]  ; clk        ; 7.054 ; 7.054 ; Rise       ; clk             ;
+;  sad_value[2]  ; clk        ; 7.080 ; 7.080 ; Rise       ; clk             ;
+;  sad_value[3]  ; clk        ; 7.095 ; 7.095 ; Rise       ; clk             ;
+;  sad_value[4]  ; clk        ; 7.053 ; 7.053 ; Rise       ; clk             ;
+;  sad_value[5]  ; clk        ; 7.066 ; 7.066 ; Rise       ; clk             ;
+;  sad_value[6]  ; clk        ; 7.083 ; 7.083 ; Rise       ; clk             ;
+;  sad_value[7]  ; clk        ; 7.052 ; 7.052 ; Rise       ; clk             ;
+;  sad_value[8]  ; clk        ; 6.776 ; 6.776 ; Rise       ; clk             ;
+;  sad_value[9]  ; clk        ; 6.780 ; 6.780 ; Rise       ; clk             ;
+;  sad_value[10] ; clk        ; 6.780 ; 6.780 ; Rise       ; clk             ;
+;  sad_value[11] ; clk        ; 6.787 ; 6.787 ; Rise       ; clk             ;
+;  sad_value[12] ; clk        ; 7.083 ; 7.083 ; Rise       ; clk             ;
+;  sad_value[13] ; clk        ; 7.091 ; 7.091 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                              ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; address[*]     ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+;  address[0]    ; clk        ; 7.087 ; 7.087 ; Rise       ; clk             ;
+;  address[1]    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+;  address[2]    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+;  address[3]    ; clk        ; 6.774 ; 6.774 ; Rise       ; clk             ;
+;  address[4]    ; clk        ; 7.085 ; 7.085 ; Rise       ; clk             ;
+;  address[5]    ; clk        ; 6.782 ; 6.782 ; Rise       ; clk             ;
+; done           ; clk        ; 7.057 ; 7.057 ; Rise       ; clk             ;
+; read_mem       ; clk        ; 6.819 ; 6.819 ; Rise       ; clk             ;
+; sad_value[*]   ; clk        ; 6.767 ; 6.767 ; Rise       ; clk             ;
+;  sad_value[0]  ; clk        ; 6.767 ; 6.767 ; Rise       ; clk             ;
+;  sad_value[1]  ; clk        ; 7.054 ; 7.054 ; Rise       ; clk             ;
+;  sad_value[2]  ; clk        ; 7.080 ; 7.080 ; Rise       ; clk             ;
+;  sad_value[3]  ; clk        ; 7.095 ; 7.095 ; Rise       ; clk             ;
+;  sad_value[4]  ; clk        ; 7.053 ; 7.053 ; Rise       ; clk             ;
+;  sad_value[5]  ; clk        ; 7.066 ; 7.066 ; Rise       ; clk             ;
+;  sad_value[6]  ; clk        ; 7.083 ; 7.083 ; Rise       ; clk             ;
+;  sad_value[7]  ; clk        ; 7.052 ; 7.052 ; Rise       ; clk             ;
+;  sad_value[8]  ; clk        ; 6.776 ; 6.776 ; Rise       ; clk             ;
+;  sad_value[9]  ; clk        ; 6.780 ; 6.780 ; Rise       ; clk             ;
+;  sad_value[10] ; clk        ; 6.780 ; 6.780 ; Rise       ; clk             ;
+;  sad_value[11] ; clk        ; 6.787 ; 6.787 ; Rise       ; clk             ;
+;  sad_value[12] ; clk        ; 7.083 ; 7.083 ; Rise       ; clk             ;
+;  sad_value[13] ; clk        ; 7.091 ; 7.091 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++-------+--------+---------------+
+; Clock ; Slack  ; End Point TNS ;
++-------+--------+---------------+
+; clk   ; -1.077 ; -11.433       ;
++-------+--------+---------------+
+
+
++-------------------------------+
+; Fast Model Hold Summary       ;
++-------+-------+---------------+
+; Clock ; Slack ; End Point TNS ;
++-------+-------+---------------+
+; clk   ; 0.203 ; 0.000         ;
++-------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++-------+--------+-----------------------+
+; Clock ; Slack  ; End Point TNS         ;
++-------+--------+-----------------------+
+; clk   ; -1.380 ; -58.380               ;
++-------+--------+-----------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'clk'                                                                                                                                                                ;
++--------+--------------------------------------------------+------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                        ; To Node                                              ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------------------+------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.077 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.106      ;
+; -1.043 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.072      ;
+; -1.033 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.062      ;
+; -1.019 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.048      ;
+; -1.009 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.038      ;
+; -0.999 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.028      ;
+; -0.990 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.019      ;
+; -0.985 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.014      ;
+; -0.975 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 2.004      ;
+; -0.966 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.995      ;
+; -0.965 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.994      ;
+; -0.961 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.990      ;
+; -0.956 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.985      ;
+; -0.951 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.980      ;
+; -0.941 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.970      ;
+; -0.938 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.967      ;
+; -0.932 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.961      ;
+; -0.931 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.960      ;
+; -0.927 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.956      ;
+; -0.922 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.951      ;
+; -0.917 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.946      ;
+; -0.917 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.946      ;
+; -0.907 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.936      ;
+; -0.904 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.933      ;
+; -0.900 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.929      ;
+; -0.898 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.927      ;
+; -0.897 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.926      ;
+; -0.893 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.922      ;
+; -0.892 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.921      ;
+; -0.888 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.917      ;
+; -0.883 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.912      ;
+; -0.883 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.912      ;
+; -0.870 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.899      ;
+; -0.869 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.898      ;
+; -0.866 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.895      ;
+; -0.864 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.893      ;
+; -0.863 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.892      ;
+; -0.859 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.888      ;
+; -0.858 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.887      ;
+; -0.854 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.883      ;
+; -0.854 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.883      ;
+; -0.849 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.878      ;
+; -0.849 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.878      ;
+; -0.836 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.865      ;
+; -0.835 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.864      ;
+; -0.834 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.863      ;
+; -0.832 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.861      ;
+; -0.830 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.859      ;
+; -0.825 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.854      ;
+; -0.824 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.853      ;
+; -0.820 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.849      ;
+; -0.820 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.849      ;
+; -0.820 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.849      ;
+; -0.816 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.845      ;
+; -0.815 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.844      ;
+; -0.802 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.831      ;
+; -0.801 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.830      ;
+; -0.800 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.829      ;
+; -0.798 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.827      ;
+; -0.796 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.825      ;
+; -0.791 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.820      ;
+; -0.790 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.819      ;
+; -0.786 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[12] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.815      ;
+; -0.786 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.815      ;
+; -0.782 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.811      ;
+; -0.781 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.810      ;
+; -0.772 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.801      ;
+; -0.768 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.797      ;
+; -0.767 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.796      ;
+; -0.766 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.795      ;
+; -0.764 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.793      ;
+; -0.758 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.787      ;
+; -0.756 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.785      ;
+; -0.752 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[11] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.781      ;
+; -0.752 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.781      ;
+; -0.748 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.777      ;
+; -0.747 ; sad_bo:blocooperador|unsigned_register:regA|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.776      ;
+; -0.738 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.767      ;
+; -0.733 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.762      ;
+; -0.732 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.761      ;
+; -0.730 ; sad_bo:blocooperador|unsigned_register:regA|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.759      ;
+; -0.729 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.758      ;
+; -0.724 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.753      ;
+; -0.722 ; sad_bo:blocooperador|unsigned_register:regB|q[4] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.751      ;
+; -0.718 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[10] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.747      ;
+; -0.718 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.747      ;
+; -0.714 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.743      ;
+; -0.705 ; sad_bo:blocooperador|unsigned_register:regA|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.734      ;
+; -0.704 ; sad_bo:blocooperador|unsigned_register:regA|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.733      ;
+; -0.700 ; sad_bo:blocooperador|unsigned_register:regB|q[2] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.729      ;
+; -0.699 ; sad_bo:blocooperador|unsigned_register:regB|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.728      ;
+; -0.698 ; sad_bo:blocooperador|unsigned_register:regB|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.727      ;
+; -0.695 ; sad_bo:blocooperador|unsigned_register:regB|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.724      ;
+; -0.690 ; sad_bo:blocooperador|unsigned_register:regB|q[0] ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.719      ;
+; -0.689 ; sad_bo:blocooperador|unsigned_register:regB|q[7] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.718      ;
+; -0.684 ; sad_bo:blocooperador|unsigned_register:regA|q[6] ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.713      ;
+; -0.684 ; sad_bo:blocooperador|unsigned_register:regA|q[5] ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.713      ;
+; -0.680 ; sad_bo:blocooperador|unsigned_register:regA|q[1] ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.709      ;
+; -0.677 ; sad_bo:blocooperador|unsigned_register:regB|q[3] ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]  ; clk          ; clk         ; 1.000        ; -0.001     ; 1.706      ;
+; -0.671 ; sad_bo:blocooperador|unsigned_register:regA|q[7] ; sad_bo:blocooperador|unsigned_register:regSoma|q[13] ; clk          ; clk         ; 1.000        ; -0.001     ; 1.700      ;
++--------+--------------------------------------------------+------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'clk'                                                                                                                                                                          ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                               ; To Node                                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.203 ; sad_bc:blococontrole|current_state.S0                   ; sad_bc:blococontrole|current_state.S0                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.351      ;
+; 0.225 ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.373      ;
+; 0.233 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; sad_bc:blococontrole|current_state.S3                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.381      ;
+; 0.233 ; sad_bc:blococontrole|current_state.S3                   ; sad_bc:blococontrole|current_state.S4                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.381      ;
+; 0.233 ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; sad_bo:blocooperador|unsigned_register:regSAD|q[11]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.381      ;
+; 0.234 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; sad_bc:blococontrole|current_state.S5                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.382      ;
+; 0.304 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSAD|q[10]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.452      ;
+; 0.304 ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; sad_bo:blocooperador|unsigned_register:regSAD|q[12]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.452      ;
+; 0.308 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[9]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.456      ;
+; 0.309 ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[2]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.457      ;
+; 0.309 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[3]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.457      ;
+; 0.313 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[1]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.461      ;
+; 0.336 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.484      ;
+; 0.338 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.486      ;
+; 0.339 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.487      ;
+; 0.339 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.487      ;
+; 0.339 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.487      ;
+; 0.340 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.488      ;
+; 0.342 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.490      ;
+; 0.342 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.490      ;
+; 0.342 ; sad_bc:blococontrole|current_state.S5                   ; sad_bc:blococontrole|current_state.S0                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.490      ;
+; 0.343 ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.491      ;
+; 0.344 ; sad_bc:blococontrole|current_state.S0                   ; sad_bc:blococontrole|current_state.S1                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.492      ;
+; 0.349 ; sad_bc:blococontrole|current_state.S2                   ; sad_bc:blococontrole|current_state.S3                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.497      ;
+; 0.349 ; sad_bc:blococontrole|current_state.S2                   ; sad_bc:blococontrole|current_state.S5                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.497      ;
+; 0.351 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.499      ;
+; 0.352 ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.500      ;
+; 0.352 ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.500      ;
+; 0.353 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.501      ;
+; 0.353 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.501      ;
+; 0.354 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.502      ;
+; 0.354 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.502      ;
+; 0.354 ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.502      ;
+; 0.380 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[7]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.528      ;
+; 0.386 ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; sad_bo:blocooperador|unsigned_register:regSAD|q[13]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.534      ;
+; 0.387 ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[6]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.535      ;
+; 0.390 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[8]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.538      ;
+; 0.391 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[4]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.539      ;
+; 0.392 ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[5]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.540      ;
+; 0.395 ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ; sad_bo:blocooperador|unsigned_register:regSAD|q[0]      ; clk          ; clk         ; 0.000        ; 0.000      ; 0.543      ;
+; 0.406 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.554      ;
+; 0.406 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.554      ;
+; 0.406 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.554      ;
+; 0.406 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.554      ;
+; 0.406 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.554      ;
+; 0.406 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.554      ;
+; 0.406 ; sad_bc:blococontrole|current_state.S1                   ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.554      ;
+; 0.430 ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.578      ;
+; 0.468 ; sad_bc:blococontrole|current_state.S4                   ; sad_bc:blococontrole|current_state.S2                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.616      ;
+; 0.468 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.616      ;
+; 0.470 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.618      ;
+; 0.471 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.619      ;
+; 0.471 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.619      ;
+; 0.472 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.620      ;
+; 0.474 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.622      ;
+; 0.474 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.622      ;
+; 0.475 ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.623      ;
+; 0.484 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.632      ;
+; 0.485 ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.633      ;
+; 0.485 ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.633      ;
+; 0.486 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.634      ;
+; 0.486 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.634      ;
+; 0.487 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.635      ;
+; 0.487 ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.635      ;
+; 0.487 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.635      ;
+; 0.502 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.650      ;
+; 0.504 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.652      ;
+; 0.505 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.653      ;
+; 0.505 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.653      ;
+; 0.506 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.654      ;
+; 0.508 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.656      ;
+; 0.508 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.656      ;
+; 0.509 ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.657      ;
+; 0.514 ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.662      ;
+; 0.518 ; sad_bc:blococontrole|current_state.S1                   ; sad_bc:blococontrole|current_state.S2                   ; clk          ; clk         ; 0.000        ; 0.000      ; 0.666      ;
+; 0.518 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.666      ;
+; 0.519 ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.667      ;
+; 0.520 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.668      ;
+; 0.520 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.668      ;
+; 0.521 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.669      ;
+; 0.523 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.671      ;
+; 0.536 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.684      ;
+; 0.538 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.686      ;
+; 0.539 ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.687      ;
+; 0.540 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.688      ;
+; 0.542 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[4]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.690      ;
+; 0.542 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.690      ;
+; 0.552 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.700      ;
+; 0.554 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.702      ;
+; 0.554 ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.702      ;
+; 0.555 ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.703      ;
+; 0.557 ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.705      ;
+; 0.563 ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.711      ;
+; 0.570 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.718      ;
+; 0.572 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.720      ;
+; 0.574 ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ; clk          ; clk         ; 0.000        ; 0.000      ; 0.722      ;
+; 0.576 ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[5]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.724      ;
+; 0.576 ; sad_bo:blocooperador|unsigned_register:regSoma|q[6]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[8]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.724      ;
+; 0.576 ; sad_bo:blocooperador|unsigned_register:regSoma|q[9]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ; clk          ; clk         ; 0.000        ; 0.000      ; 0.724      ;
+; 0.586 ; sad_bo:blocooperador|unsigned_register:regSoma|q[3]     ; sad_bo:blocooperador|unsigned_register:regSoma|q[7]     ; clk          ; clk         ; 0.000        ; 0.000      ; 0.734      ;
++-------+---------------------------------------------------------+---------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'clk'                                                                                                    ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                                  ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; clk   ; Rise       ; clk                                                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S0                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S0                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S1                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S1                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S2                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S2                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S3                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S3                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S4                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S4                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S5                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bc:blococontrole|current_state.S5                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[0]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[0]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[1]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[1]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[2]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[2]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[3]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[3]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[4]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[4]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[5]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[5]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[6]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[6]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[7]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regA|q[7]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[0]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[0]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[1]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[1]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[2]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[2]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[3]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[3]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[4]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[4]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[5]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[5]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[6]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[6]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[7]        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regB|q[7]        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[4] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[5] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regEndereco|q[6] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[0]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[0]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[10]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[10]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[11]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[11]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[12]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[12]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[13]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[13]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[1]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[1]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[2]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[2]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[3]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[3]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[4]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[4]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[5]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[5]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[6]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[6]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[7]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[7]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[8]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[8]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[9]      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSAD|q[9]      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[10]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[11]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[12]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[13]    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; clk   ; Rise       ; sad_bo:blocooperador|unsigned_register:regSoma|q[2]     ;
++--------+--------------+----------------+------------------+-------+------------+---------------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Setup Times                                                                  ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; enable         ; clk        ; 1.848  ; 1.848  ; Rise       ; clk             ;
+; sample_can[*]  ; clk        ; 2.205  ; 2.205  ; Rise       ; clk             ;
+;  sample_can[0] ; clk        ; 1.999  ; 1.999  ; Rise       ; clk             ;
+;  sample_can[1] ; clk        ; -0.117 ; -0.117 ; Rise       ; clk             ;
+;  sample_can[2] ; clk        ; 2.138  ; 2.138  ; Rise       ; clk             ;
+;  sample_can[3] ; clk        ; 1.937  ; 1.937  ; Rise       ; clk             ;
+;  sample_can[4] ; clk        ; 1.880  ; 1.880  ; Rise       ; clk             ;
+;  sample_can[5] ; clk        ; 2.205  ; 2.205  ; Rise       ; clk             ;
+;  sample_can[6] ; clk        ; 1.883  ; 1.883  ; Rise       ; clk             ;
+;  sample_can[7] ; clk        ; 1.918  ; 1.918  ; Rise       ; clk             ;
+; sample_ori[*]  ; clk        ; 2.018  ; 2.018  ; Rise       ; clk             ;
+;  sample_ori[0] ; clk        ; 1.962  ; 1.962  ; Rise       ; clk             ;
+;  sample_ori[1] ; clk        ; -0.137 ; -0.137 ; Rise       ; clk             ;
+;  sample_ori[2] ; clk        ; 1.908  ; 1.908  ; Rise       ; clk             ;
+;  sample_ori[3] ; clk        ; 2.003  ; 2.003  ; Rise       ; clk             ;
+;  sample_ori[4] ; clk        ; 2.016  ; 2.016  ; Rise       ; clk             ;
+;  sample_ori[5] ; clk        ; 2.018  ; 2.018  ; Rise       ; clk             ;
+;  sample_ori[6] ; clk        ; 1.886  ; 1.886  ; Rise       ; clk             ;
+;  sample_ori[7] ; clk        ; 1.893  ; 1.893  ; Rise       ; clk             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Hold Times                                                                   ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; enable         ; clk        ; -1.728 ; -1.728 ; Rise       ; clk             ;
+; sample_can[*]  ; clk        ; 0.235  ; 0.235  ; Rise       ; clk             ;
+;  sample_can[0] ; clk        ; -1.881 ; -1.881 ; Rise       ; clk             ;
+;  sample_can[1] ; clk        ; 0.235  ; 0.235  ; Rise       ; clk             ;
+;  sample_can[2] ; clk        ; -2.020 ; -2.020 ; Rise       ; clk             ;
+;  sample_can[3] ; clk        ; -1.819 ; -1.819 ; Rise       ; clk             ;
+;  sample_can[4] ; clk        ; -1.762 ; -1.762 ; Rise       ; clk             ;
+;  sample_can[5] ; clk        ; -2.087 ; -2.087 ; Rise       ; clk             ;
+;  sample_can[6] ; clk        ; -1.765 ; -1.765 ; Rise       ; clk             ;
+;  sample_can[7] ; clk        ; -1.800 ; -1.800 ; Rise       ; clk             ;
+; sample_ori[*]  ; clk        ; 0.255  ; 0.255  ; Rise       ; clk             ;
+;  sample_ori[0] ; clk        ; -1.844 ; -1.844 ; Rise       ; clk             ;
+;  sample_ori[1] ; clk        ; 0.255  ; 0.255  ; Rise       ; clk             ;
+;  sample_ori[2] ; clk        ; -1.790 ; -1.790 ; Rise       ; clk             ;
+;  sample_ori[3] ; clk        ; -1.885 ; -1.885 ; Rise       ; clk             ;
+;  sample_ori[4] ; clk        ; -1.898 ; -1.898 ; Rise       ; clk             ;
+;  sample_ori[5] ; clk        ; -1.900 ; -1.900 ; Rise       ; clk             ;
+;  sample_ori[6] ; clk        ; -1.768 ; -1.768 ; Rise       ; clk             ;
+;  sample_ori[7] ; clk        ; -1.775 ; -1.775 ; Rise       ; clk             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Clock to Output Times                                                      ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; address[*]     ; clk        ; 3.367 ; 3.367 ; Rise       ; clk             ;
+;  address[0]    ; clk        ; 3.367 ; 3.367 ; Rise       ; clk             ;
+;  address[1]    ; clk        ; 3.238 ; 3.238 ; Rise       ; clk             ;
+;  address[2]    ; clk        ; 3.238 ; 3.238 ; Rise       ; clk             ;
+;  address[3]    ; clk        ; 3.240 ; 3.240 ; Rise       ; clk             ;
+;  address[4]    ; clk        ; 3.364 ; 3.364 ; Rise       ; clk             ;
+;  address[5]    ; clk        ; 3.249 ; 3.249 ; Rise       ; clk             ;
+; done           ; clk        ; 3.336 ; 3.336 ; Rise       ; clk             ;
+; read_mem       ; clk        ; 3.276 ; 3.276 ; Rise       ; clk             ;
+; sad_value[*]   ; clk        ; 3.367 ; 3.367 ; Rise       ; clk             ;
+;  sad_value[0]  ; clk        ; 3.242 ; 3.242 ; Rise       ; clk             ;
+;  sad_value[1]  ; clk        ; 3.344 ; 3.344 ; Rise       ; clk             ;
+;  sad_value[2]  ; clk        ; 3.355 ; 3.355 ; Rise       ; clk             ;
+;  sad_value[3]  ; clk        ; 3.367 ; 3.367 ; Rise       ; clk             ;
+;  sad_value[4]  ; clk        ; 3.344 ; 3.344 ; Rise       ; clk             ;
+;  sad_value[5]  ; clk        ; 3.305 ; 3.305 ; Rise       ; clk             ;
+;  sad_value[6]  ; clk        ; 3.360 ; 3.360 ; Rise       ; clk             ;
+;  sad_value[7]  ; clk        ; 3.304 ; 3.304 ; Rise       ; clk             ;
+;  sad_value[8]  ; clk        ; 3.252 ; 3.252 ; Rise       ; clk             ;
+;  sad_value[9]  ; clk        ; 3.254 ; 3.254 ; Rise       ; clk             ;
+;  sad_value[10] ; clk        ; 3.253 ; 3.253 ; Rise       ; clk             ;
+;  sad_value[11] ; clk        ; 3.250 ; 3.250 ; Rise       ; clk             ;
+;  sad_value[12] ; clk        ; 3.361 ; 3.361 ; Rise       ; clk             ;
+;  sad_value[13] ; clk        ; 3.326 ; 3.326 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                              ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; address[*]     ; clk        ; 3.238 ; 3.238 ; Rise       ; clk             ;
+;  address[0]    ; clk        ; 3.367 ; 3.367 ; Rise       ; clk             ;
+;  address[1]    ; clk        ; 3.238 ; 3.238 ; Rise       ; clk             ;
+;  address[2]    ; clk        ; 3.238 ; 3.238 ; Rise       ; clk             ;
+;  address[3]    ; clk        ; 3.240 ; 3.240 ; Rise       ; clk             ;
+;  address[4]    ; clk        ; 3.364 ; 3.364 ; Rise       ; clk             ;
+;  address[5]    ; clk        ; 3.249 ; 3.249 ; Rise       ; clk             ;
+; done           ; clk        ; 3.336 ; 3.336 ; Rise       ; clk             ;
+; read_mem       ; clk        ; 3.276 ; 3.276 ; Rise       ; clk             ;
+; sad_value[*]   ; clk        ; 3.242 ; 3.242 ; Rise       ; clk             ;
+;  sad_value[0]  ; clk        ; 3.242 ; 3.242 ; Rise       ; clk             ;
+;  sad_value[1]  ; clk        ; 3.344 ; 3.344 ; Rise       ; clk             ;
+;  sad_value[2]  ; clk        ; 3.355 ; 3.355 ; Rise       ; clk             ;
+;  sad_value[3]  ; clk        ; 3.367 ; 3.367 ; Rise       ; clk             ;
+;  sad_value[4]  ; clk        ; 3.344 ; 3.344 ; Rise       ; clk             ;
+;  sad_value[5]  ; clk        ; 3.305 ; 3.305 ; Rise       ; clk             ;
+;  sad_value[6]  ; clk        ; 3.360 ; 3.360 ; Rise       ; clk             ;
+;  sad_value[7]  ; clk        ; 3.304 ; 3.304 ; Rise       ; clk             ;
+;  sad_value[8]  ; clk        ; 3.252 ; 3.252 ; Rise       ; clk             ;
+;  sad_value[9]  ; clk        ; 3.254 ; 3.254 ; Rise       ; clk             ;
+;  sad_value[10] ; clk        ; 3.253 ; 3.253 ; Rise       ; clk             ;
+;  sad_value[11] ; clk        ; 3.250 ; 3.250 ; Rise       ; clk             ;
+;  sad_value[12] ; clk        ; 3.361 ; 3.361 ; Rise       ; clk             ;
+;  sad_value[13] ; clk        ; 3.326 ; 3.326 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -4.906   ; 0.203 ; N/A      ; N/A     ; -1.631              ;
+;  clk             ; -4.906   ; 0.203 ; N/A      ; N/A     ; -1.631              ;
+; Design-wide TNS  ; -110.602 ; 0.0   ; 0.0      ; 0.0     ; -71.285             ;
+;  clk             ; -110.602 ; 0.000 ; N/A      ; N/A     ; -71.285             ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++----------------------------------------------------------------------------+
+; Setup Times                                                                ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; enable         ; clk        ; 3.934 ; 3.934 ; Rise       ; clk             ;
+; sample_can[*]  ; clk        ; 4.876 ; 4.876 ; Rise       ; clk             ;
+;  sample_can[0] ; clk        ; 4.288 ; 4.288 ; Rise       ; clk             ;
+;  sample_can[1] ; clk        ; 0.408 ; 0.408 ; Rise       ; clk             ;
+;  sample_can[2] ; clk        ; 4.645 ; 4.645 ; Rise       ; clk             ;
+;  sample_can[3] ; clk        ; 4.049 ; 4.049 ; Rise       ; clk             ;
+;  sample_can[4] ; clk        ; 3.959 ; 3.959 ; Rise       ; clk             ;
+;  sample_can[5] ; clk        ; 4.876 ; 4.876 ; Rise       ; clk             ;
+;  sample_can[6] ; clk        ; 3.930 ; 3.930 ; Rise       ; clk             ;
+;  sample_can[7] ; clk        ; 4.024 ; 4.024 ; Rise       ; clk             ;
+; sample_ori[*]  ; clk        ; 4.305 ; 4.305 ; Rise       ; clk             ;
+;  sample_ori[0] ; clk        ; 4.180 ; 4.180 ; Rise       ; clk             ;
+;  sample_ori[1] ; clk        ; 0.468 ; 0.468 ; Rise       ; clk             ;
+;  sample_ori[2] ; clk        ; 3.991 ; 3.991 ; Rise       ; clk             ;
+;  sample_ori[3] ; clk        ; 4.282 ; 4.282 ; Rise       ; clk             ;
+;  sample_ori[4] ; clk        ; 4.305 ; 4.305 ; Rise       ; clk             ;
+;  sample_ori[5] ; clk        ; 4.305 ; 4.305 ; Rise       ; clk             ;
+;  sample_ori[6] ; clk        ; 3.951 ; 3.951 ; Rise       ; clk             ;
+;  sample_ori[7] ; clk        ; 3.975 ; 3.975 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------------+
+; Hold Times                                                                   ;
++----------------+------------+--------+--------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++----------------+------------+--------+--------+------------+-----------------+
+; enable         ; clk        ; -1.728 ; -1.728 ; Rise       ; clk             ;
+; sample_can[*]  ; clk        ; 0.235  ; 0.235  ; Rise       ; clk             ;
+;  sample_can[0] ; clk        ; -1.881 ; -1.881 ; Rise       ; clk             ;
+;  sample_can[1] ; clk        ; 0.235  ; 0.235  ; Rise       ; clk             ;
+;  sample_can[2] ; clk        ; -2.020 ; -2.020 ; Rise       ; clk             ;
+;  sample_can[3] ; clk        ; -1.819 ; -1.819 ; Rise       ; clk             ;
+;  sample_can[4] ; clk        ; -1.762 ; -1.762 ; Rise       ; clk             ;
+;  sample_can[5] ; clk        ; -2.087 ; -2.087 ; Rise       ; clk             ;
+;  sample_can[6] ; clk        ; -1.765 ; -1.765 ; Rise       ; clk             ;
+;  sample_can[7] ; clk        ; -1.800 ; -1.800 ; Rise       ; clk             ;
+; sample_ori[*]  ; clk        ; 0.255  ; 0.255  ; Rise       ; clk             ;
+;  sample_ori[0] ; clk        ; -1.844 ; -1.844 ; Rise       ; clk             ;
+;  sample_ori[1] ; clk        ; 0.255  ; 0.255  ; Rise       ; clk             ;
+;  sample_ori[2] ; clk        ; -1.790 ; -1.790 ; Rise       ; clk             ;
+;  sample_ori[3] ; clk        ; -1.885 ; -1.885 ; Rise       ; clk             ;
+;  sample_ori[4] ; clk        ; -1.898 ; -1.898 ; Rise       ; clk             ;
+;  sample_ori[5] ; clk        ; -1.900 ; -1.900 ; Rise       ; clk             ;
+;  sample_ori[6] ; clk        ; -1.768 ; -1.768 ; Rise       ; clk             ;
+;  sample_ori[7] ; clk        ; -1.775 ; -1.775 ; Rise       ; clk             ;
++----------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Clock to Output Times                                                      ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; address[*]     ; clk        ; 7.087 ; 7.087 ; Rise       ; clk             ;
+;  address[0]    ; clk        ; 7.087 ; 7.087 ; Rise       ; clk             ;
+;  address[1]    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+;  address[2]    ; clk        ; 6.770 ; 6.770 ; Rise       ; clk             ;
+;  address[3]    ; clk        ; 6.774 ; 6.774 ; Rise       ; clk             ;
+;  address[4]    ; clk        ; 7.085 ; 7.085 ; Rise       ; clk             ;
+;  address[5]    ; clk        ; 6.782 ; 6.782 ; Rise       ; clk             ;
+; done           ; clk        ; 7.057 ; 7.057 ; Rise       ; clk             ;
+; read_mem       ; clk        ; 6.819 ; 6.819 ; Rise       ; clk             ;
+; sad_value[*]   ; clk        ; 7.095 ; 7.095 ; Rise       ; clk             ;
+;  sad_value[0]  ; clk        ; 6.767 ; 6.767 ; Rise       ; clk             ;
+;  sad_value[1]  ; clk        ; 7.054 ; 7.054 ; Rise       ; clk             ;
+;  sad_value[2]  ; clk        ; 7.080 ; 7.080 ; Rise       ; clk             ;
+;  sad_value[3]  ; clk        ; 7.095 ; 7.095 ; Rise       ; clk             ;
+;  sad_value[4]  ; clk        ; 7.053 ; 7.053 ; Rise       ; clk             ;
+;  sad_value[5]  ; clk        ; 7.066 ; 7.066 ; Rise       ; clk             ;
+;  sad_value[6]  ; clk        ; 7.083 ; 7.083 ; Rise       ; clk             ;
+;  sad_value[7]  ; clk        ; 7.052 ; 7.052 ; Rise       ; clk             ;
+;  sad_value[8]  ; clk        ; 6.776 ; 6.776 ; Rise       ; clk             ;
+;  sad_value[9]  ; clk        ; 6.780 ; 6.780 ; Rise       ; clk             ;
+;  sad_value[10] ; clk        ; 6.780 ; 6.780 ; Rise       ; clk             ;
+;  sad_value[11] ; clk        ; 6.787 ; 6.787 ; Rise       ; clk             ;
+;  sad_value[12] ; clk        ; 7.083 ; 7.083 ; Rise       ; clk             ;
+;  sad_value[13] ; clk        ; 7.091 ; 7.091 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                              ;
++----------------+------------+-------+-------+------------+-----------------+
+; Data Port      ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++----------------+------------+-------+-------+------------+-----------------+
+; address[*]     ; clk        ; 3.238 ; 3.238 ; Rise       ; clk             ;
+;  address[0]    ; clk        ; 3.367 ; 3.367 ; Rise       ; clk             ;
+;  address[1]    ; clk        ; 3.238 ; 3.238 ; Rise       ; clk             ;
+;  address[2]    ; clk        ; 3.238 ; 3.238 ; Rise       ; clk             ;
+;  address[3]    ; clk        ; 3.240 ; 3.240 ; Rise       ; clk             ;
+;  address[4]    ; clk        ; 3.364 ; 3.364 ; Rise       ; clk             ;
+;  address[5]    ; clk        ; 3.249 ; 3.249 ; Rise       ; clk             ;
+; done           ; clk        ; 3.336 ; 3.336 ; Rise       ; clk             ;
+; read_mem       ; clk        ; 3.276 ; 3.276 ; Rise       ; clk             ;
+; sad_value[*]   ; clk        ; 3.242 ; 3.242 ; Rise       ; clk             ;
+;  sad_value[0]  ; clk        ; 3.242 ; 3.242 ; Rise       ; clk             ;
+;  sad_value[1]  ; clk        ; 3.344 ; 3.344 ; Rise       ; clk             ;
+;  sad_value[2]  ; clk        ; 3.355 ; 3.355 ; Rise       ; clk             ;
+;  sad_value[3]  ; clk        ; 3.367 ; 3.367 ; Rise       ; clk             ;
+;  sad_value[4]  ; clk        ; 3.344 ; 3.344 ; Rise       ; clk             ;
+;  sad_value[5]  ; clk        ; 3.305 ; 3.305 ; Rise       ; clk             ;
+;  sad_value[6]  ; clk        ; 3.360 ; 3.360 ; Rise       ; clk             ;
+;  sad_value[7]  ; clk        ; 3.304 ; 3.304 ; Rise       ; clk             ;
+;  sad_value[8]  ; clk        ; 3.252 ; 3.252 ; Rise       ; clk             ;
+;  sad_value[9]  ; clk        ; 3.254 ; 3.254 ; Rise       ; clk             ;
+;  sad_value[10] ; clk        ; 3.253 ; 3.253 ; Rise       ; clk             ;
+;  sad_value[11] ; clk        ; 3.250 ; 3.250 ; Rise       ; clk             ;
+;  sad_value[12] ; clk        ; 3.361 ; 3.361 ; Rise       ; clk             ;
+;  sad_value[13] ; clk        ; 3.326 ; 3.326 ; Rise       ; clk             ;
++----------------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 2937     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 2937     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 18    ; 18   ;
+; Unconstrained Input Port Paths  ; 24    ; 24   ;
+; Unconstrained Output Ports      ; 22    ; 22   ;
+; Unconstrained Output Port Paths ; 22    ; 22   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Jun 26 00:28:44 2025
+Info: Command: quartus_sta sad -c sad
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is -40 degrees C
+Info (21077): High junction temperature is 125 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'sad.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -4.906
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -4.906      -110.602 clk 
+Info (332146): Worst-case hold slack is 0.460
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.460         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.631
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.631       -71.285 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -1.077
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.077       -11.433 clk 
+Info (332146): Worst-case hold slack is 0.203
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.203         0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380       -58.380 clk 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4551 megabytes
+    Info: Processing ended: Thu Jun 26 00:28:45 2025
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

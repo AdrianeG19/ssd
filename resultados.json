@@ -1,0 +1,26 @@
+{
+    "dupla": {
+        "nome": "dupla X",
+        "alunos": [
+          {"nome": "Gustavo Adriane de Almeida Guiumarães e Silva", "matricula": "24208994"},
+          {"nome": "Maria Eduarda da Silva Maria", "matricula": "24200387"}
+        ]
+    },
+    "quartus": {
+        "os": "Windows 11",
+        "versao": "13.0.1 (completar)",
+        "fpga": {
+            "familia": "Cyclone II",
+            "dispositivo": "EP2C5AF256A7"
+        }
+    },
+    "utilizacao": {
+        "total combinational functions": 58,
+        "dedicated logic registers": 57,
+        "total pins": 41
+    },
+    "atraso": {
+        "Fmax": 169.32,
+        "unidade": "MHz"
+    }
+}
