@@ -78,6 +78,7 @@ end entity;
 architecture structure OF sad_bo is
     -- signals SAD
     signal saidaRegA, saidaRegB : unsigned(CFG.bits_per_sample - 1 downto 0); -- registradores que armazenam os valores de entrada A e B e a diferença absoluta
+    --signal saidaAbs com "CFG.bits_per_sample * 2 + 1" pois é necessario que o array tenha 18 bits para evitar overflow na subtração e no cálculo do quadrado da diferença.
     signal saidaAbs : unsigned(CFG.bits_per_sample * 2 + 1 downto 0); -- registrador que armazena a diferença absoluta, com o dobro de bits para evitar overflow
     signal entradaSomaAcumulativa, saidaRegSoma, sadUnsigned : unsigned(partial_sad_length (CFG.bits_per_sample, CFG.samples_per_block) - 1 downto 0); -- registrador que armazena a soma acumulativa e o valor final da SAD
     signal saidaSoma : unsigned(partial_sad_length (CFG.bits_per_sample, CFG.samples_per_block) downto 0); -- registrador que armazena a soma temporária
