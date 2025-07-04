@@ -1,0 +1,13 @@
+ghdl -a --std=08 ssd_pack.vhdl
+ghdl -a --std=08 mux_2to1.vhdl
+ghdl -a --std=08 signed_subtractor.vhdl
+ghdl -a --std=08 unsigned_adder.vhdl
+ghdl -a --std=08 unsigned_register.vhdl
+ghdl -a --std=08 square_difference.vhdl
+ghdl -a --std=08 ssd_bc.vhdl
+ghdl -a --std=08 ssd_bo.vhdl
+ghdl -a --std=08 SSD.vhdl
+ghdl -a --std=08 testbench.vhd
+ghdl -r --std=08 testbench --wave=testbench.ghw
+
+gtkwave testbench.ghw
