@@ -1,122 +1,141 @@
 # Atividade Prática 2
 
-Este projeto VHDL implementa um somador de diferença absoluta (SAD). O desenvolvimento e verificação inicial foram feitos via VPL no Moodle, com análise de temporização e uso de recursos de FPGA confirmados pelo ModelSim e Quartus II.
+Este projeto VHDL implementa um somador de diferença quadrática (SSD - Sum of Squared Differences). O desenvolvimento, simulação e análise de temporização foram realizados utilizando **Quartus II** para síntese e **GTKWave** para visualização das formas de onda.
 
-## Dupla X
+## Grupo xxx
 
 - Gustavo Adriane de Almeida Guimarães e Silva (Matrícula 24208994)
-- Maria Eduarda da Silva Maria (Matrícula 24200387)
-
+- 
 
 ## Descrição
 
-Este projeto consiste na implementação em VHDL de um somador de diferença absoluta (SAD - Sum of Absolute Differences). O circuito tem como finalidade calcular a soma das diferenças absolutas entre duas sequências de amostras, uma operação fundamental em diversas aplicações de processamento de sinais, como compressão de vídeo e reconhecimento de padrões.
+Este projeto consiste na implementação em VHDL de um somador de diferença quadrática (SSD - Sum of Squared Differences). O circuito calcula a soma dos quadrados das diferenças entre duas sequências de amostras, operação fundamental em aplicações como compressão de vídeo, reconhecimento de padrões e processamento de imagens, onde o SSD é utilizado para medir similaridade entre blocos de dados.
 
-A arquitetura do design foi pensada para ser parametrizável, permitindo a configuração de diversos aspectos do circuito através de generics. O código top-level (sad.vhd) que encapsula a funcionalidade principal do somador é definido pela seguinte entidade:
+A arquitetura do design é totalmente parametrizável, permitindo a configuração de diversos aspectos do circuito através de generics. O código top-level (`ssd.vhd`) encapsula a funcionalidade principal do somador SSD e é definido pela seguinte entidade:
 
 ```
-entity sad_bo is
+entity ssd_bo is
 
-	generic(
-		CFG : datapath_configuration_t := (
-			bits_per_sample   => 8,
-			samples_per_block => 64,
-			parallel_samples  => 1
-        )
-	);
+    generic(
+        CFG : datapath_configuration_t := (
+            bits_per_sample   => 8,
+            samples_per_block => 64,
+            parallel_samples  => 1
+        )
+    );
 
-	port(
-	
-		clk : in std_logic;
-
-        amostraA : in unsigned (CFG.bits_per_sample - 1 downto 0);
-        amostraB : in unsigned (CFG.bits_per_sample - 1 downto 0);
-        SAD : out std_logic_vector (CFG.bits_per_sample + clogb2(CFG.samples_per_block) - 1 downto 0);
-        
-        address: out std_logic_vector(5 downto 0);
-
-        cpA : in std_logic;
-        cpB : in std_logic;
-        zsoma : in std_logic;
-        csoma : in std_logic;
-        csad_reg : in std_logic;
-        
-        zi : in std_logic;
-        ci : in std_logic;
-        menor : out std_logic
-        
-	);
+    port(
+        clk : in std_logic;
+        amostraA : in unsigned (CFG.bits_per_sample - 1 downto 0);
+        amostraB : in unsigned (CFG.bits_per_sample - 1 downto 0);
+        SSD : out std_logic_vector (CFG.bits_per_sample + clogb2(CFG.samples_per_block) - 1 downto 0);
+        address: out std_logic_vector(5 downto 0);
+        cpA : in std_logic;
+        cpB : in std_logic;
+        zssd : in std_logic;
+        cssd : in std_logic;
+        cssd_reg : in std_logic;
+        zi : in std_logic;
+        ci : in std_logic;
+        menor : out std_logic
+    );
 end entity;
 ```
 
-#### Simulação
+### Funcionamento
 
-A verificação inicial do código VHDL foi realizada no ambiente **Virtual Programming Lab (VPL)**, integrado ao Moodle, que permitiu a escrita, compilação e testes preliminares do design.
+O circuito é composto por dois blocos principais:
 
-Para a análise de temporização e a geração de relatórios detalhados de *setup* e *hold times*, o **ModelSim** foi a ferramenta empregada. Os dados de temporização presentes neste README, como a tabela de "Setup Times" abaixo, foram extraídos diretamente dos relatórios de simulação do ModelSim e Quartus II, fornecendo insights críticos sobre o desempenho e a validação temporal do design.
+* **Bloco Operativo (BO):** Responsável pelas operações aritméticas do datapath, incluindo subtração, cálculo do quadrado da diferença e acumulação da soma dos quadrados. Também gerencia o endereçamento de memória e o sinal de controle de laço (`menor`). O cálculo do SSD é feito de forma sequencial ou paralela, dependendo do parâmetro `parallel_samples`.
+
+* **Bloco de Controle (BC):** Implementa uma máquina de estados finitos (FSM) que sequencia as operações do BO, gerando os sinais de controle necessários para cada etapa do cálculo SSD. O controle garante o correto fluxo de dados, inicialização dos acumuladores, controle de leitura das amostras e armazenamento do resultado final.
+
+### Parametrização
+
+O projeto permite ajustar:
+- **bits_per_sample:** Número de bits de cada amostra.
+- **samples_per_block:** Número total de amostras por bloco.
+- **parallel_samples:** Número de amostras processadas em paralelo, permitindo otimização de desempenho para diferentes aplicações.
+
+### Simulação
+
+A simulação e validação do circuito foram realizadas utilizando o **Quartus II** para síntese e geração do netlist, e o **GTKWave** para análise das formas de onda resultantes da simulação funcional. O fluxo de trabalho envolveu a criação de testbenches em VHDL, execução da simulação no ambiente do Quartus (ModelSim integrado ou equivalente), exportação dos arquivos de waveform (`.vcd` ou `.ghw`) e análise detalhada dos sinais no GTKWave.
 
 ### Relatório de Tempos de Setup
 
-Este relatório apresenta os tempos de setup para os principais sinais de dados em relação ao clock `clk`, conforme gerado pelo ModelSim.
+Este relatório apresenta os tempos de setup para os principais sinais de dados em relação ao clock `clk`, conforme gerado pelo Quartus II.  
+**Observação:** O tempo de clock foi alterado para 10 ns (100 MHz) utilizando a seguinte constraint no arquivo SDC:
+
+```
+set_clock_frequency -period 10 [get_clocks clk]
+```
 
 | Data Port      | Clock Port | Rise (ns) | Fall (ns) | Clock Edge | Clock Reference |
 |----------------|------------|-----------|-----------|------------|-----------------|
-| `enable`       | `clk`      | 3.934     | 3.934     | Rise       | `clk`           |
-| `sample_can[*]`| `clk`      | 4.876     | 4.876     | Rise       | `clk`           |
-| `sample_can[0]`| `clk`      | 4.288     | 4.288     | Rise       | `clk`           |
-| `sample_can[1]`| `clk`      | 0.408     | 0.408     | Rise       | `clk`           |
-| `sample_can[2]`| `clk`      | 4.645     | 4.645     | Rise       | `clk`           |
-| `sample_can[3]`| `clk`      | 4.049     | 4.049     | Rise       | `clk`           |
-| `sample_can[4]`| `clk`      | 3.959     | 3.959     | Rise       | `clk`           |
-| `sample_can[5]`| `clk`      | 4.876     | 4.876     | Rise       | `clk`           |
-| `sample_can[6]`| `clk`      | 3.930     | 3.930     | Rise       | `clk`           |
-| `sample_can[7]`| `clk`      | 4.024     | 4.024     | Rise       | `clk`           |
-| `sample_ori[*]`| `clk`      | 4.305     | 4.305     | Rise       | `clk`           |
-| `sample_ori[0]`| `clk`      | 4.180     | 4.180     | Rise       | `clk`           |
-| `sample_ori[1]`| `clk`      | 0.468     | 0.468     | Rise       | `clk`           |
-| `sample_ori[2]`| `clk`      | 3.991     | 3.991     | Rise       | `clk`           |
-| `sample_ori[3]`| `clk`      | 4.282     | 4.282     | Rise       | `clk`           |
-| `sample_ori[4]`| `clk`      | 4.305     | 4.305     | Rise       | `clk`           |
-| `sample_ori[5]`| `clk`      | 4.305     | 4.305     | Rise       | `clk`           |
-| `sample_ori[6]`| `clk`      | 3.951     | 3.951     | Rise       | `clk`           |
-| `sample_ori[7]`| `clk`      | 3.975     | 3.975     | Rise       | `clk`           |
+| `enable`       | `clk`      | 3.509     | 3.509     | Rise       | `clk`           |
+| `sample_can[*]`| `clk`      | 4.602     | 4.602     | Rise       | `clk`           |
+| `sample_can[0]`| `clk`      | 4.205     | 4.205     | Rise       | `clk`           |
+| `sample_can[1]`| `clk`      | 4.602     | 4.602     | Rise       | `clk`           |
+| `sample_can[2]`| `clk`      | 4.241     | 4.241     | Rise       | `clk`           |
+| `sample_can[3]`| `clk`      | 3.963     | 3.963     | Rise       | `clk`           |
+| `sample_can[4]`| `clk`      | 4.234     | 4.234     | Rise       | `clk`           |
+| `sample_can[5]`| `clk`      | 4.242     | 4.242     | Rise       | `clk`           |
+| `sample_can[6]`| `clk`      | 3.909     | 3.909     | Rise       | `clk`           |
+| `sample_can[7]`| `clk`      | 0.412     | 0.412     | Rise       | `clk`           |
+| `sample_ori[*]`| `clk`      | 4.719     | 4.719     | Rise       | `clk`           |
+| `sample_ori[0]`| `clk`      | 4.716     | 4.716     | Rise       | `clk`           |
+| `sample_ori[1]`| `clk`      | 4.088     | 4.088     | Rise       | `clk`           |
+| `sample_ori[2]`| `clk`      | 4.688     | 4.688     | Rise       | `clk`           |
+| `sample_ori[3]`| `clk`      | 4.067     | 4.067     | Rise       | `clk`           |
+| `sample_ori[4]`| `clk`      | 4.399     | 4.399     | Rise       | `clk`           |
+| `sample_ori[5]`| `clk`      | 4.702     | 4.702     | Rise       | `clk`           |
+| `sample_ori[6]`| `clk`      | 4.719     | 4.719     | Rise       | `clk`           |
+| `sample_ori[7]`| `clk`      | 0.485     | 0.485     | Rise       | `clk`           |
 
 **Observações:**
-* Todos os valores de `Rise` e `Fall` (que representam a folga de tempo de setup) são positivos, indicando que os requisitos de temporização de setup são atendidos para a frequência de clock utilizada na simulação.
-* O caminho mais crítico (menor folga de setup) para as entradas é `sample_can[1]` com 0.408 ns e `sample_ori[1]` com 0.468 ns.
+* Todos os valores de `Rise` e `Fall` (folga de tempo de setup) são positivos, indicando que os requisitos de temporização de setup são atendidos para a frequência de clock utilizada (100 MHz).
+* O caminho mais crítico (menor folga de setup) para as entradas é `sample_can[7]` com 0.412 ns e `sample_ori[7]` com 0.485 ns, indicando que esses sinais estão com folga mínima e devem ser monitorados em frequências mais altas.
 
 ### Relatório de Compilação
 
-A compilação do projeto foi realizada com sucesso utilizando o **Quartus II**. Este relatório resume a utilização dos recursos do FPGA para o design `sad`.
+A compilação do projeto foi realizada com sucesso utilizando o **Quartus II**. Este relatório resume a utilização dos recursos do FPGA para o design `ssd`:
 
-| Item                      | Valor        | Porcentagem |
-|---------------------------|--------------|-------------|
-| **Flow Status** | Successful   | -           |
-| Revision Name             | sad          | -           |
-| Top-level Entity Name     | sad          | -           |
-| Family                    | Cyclone II   | -           |
-| Device                    | EP2C5AF256A7 | -           |
-| Timing Models             | Final        | -           |
-| Total logic elements      | 74 / 4,608   | 2 %         |
-| Total combinational functions | 58 / 4,608 | 1 %         |
-| Dedicated logic registers | 57 / 4,608 | 1 %         |
-| Total registers           | 57           | -           |
-| Total pins                | 41 / 158     | 26 %        |
-| Total virtual pins        | 0            | -           |
-| Total memory bits         | 0 / 119,808  | 0 %         |
-| Embedded Multiplier 9-bit elements | 0 / 26 | 0 %         |
-| Total PLLs                | 0 / 2        | 0 %         |
+| Item                              | Valor            | Porcentagem |
+|------------------------------------|------------------|-------------|
+| **Flow Status**                    | Successful       | -           |
+| Revision Name                      | ssd              | -           |
+| Top-level Entity Name              | ssd              | -           |
+| Family                             | Cyclone II       | -           |
+| Device                             | EP2C5AF256A7     | -           |
+| Timing Models                      | Final            | -           |
+| Total logic elements               | 58 / 4,608       | 1 %         |
+| Total combinational functions      | 35 / 4,608       | < 1 %       |
+| Dedicated logic registers          | 57 / 4,608       | 1 %         |
+| Total registers                    | 57               | -           |
+| Total pins                         | 41 / 158         | 26 %        |
+| Total virtual pins                 | 0                | -           |
+| Total memory bits                  | 0 / 119,808      | 0 %         |
+| Embedded Multiplier 9-bit elements | 1 / 26           | 4 %         |
+| Total PLLs                         | 0 / 2            | 0 %         |
+
+### Fmax (Frequência Máxima)
+
+| Fmax         | Restricted Fmax | Clock Name | Note |
+|--------------|-----------------|------------|------|
+| 108.96 MHz   | 108.96 MHz      | clk        |      |
 
 ### Arquitetura do Design
 
-O design do circuito SAD é composto por dois blocos principais:
-* **Bloco Operativo (BO):** Responsável pelas operações de *datapath*, incluindo a subtração, cálculo de valor absoluto e acumulação da soma das diferenças. Ele também gerencia o endereçamento de memória e o sinal de controle de laço (`menor`).
-* **Bloco de Controle (BC):** Implementa a máquina de estados finitos que sequencia as operações do BO, gerando os sinais de controle necessários para cada etapa do cálculo SAD.
+O design do circuito SSD é composto por dois blocos principais:
+* **Bloco Operativo (BO):** Responsável pelas operações de datapath, incluindo subtração, cálculo do quadrado da diferença e acumulação da soma dos quadrados. Também gerencia o endereçamento de memória e o sinal de controle de laço (`menor`).
+* **Bloco de Controle (BC):** Implementa a máquina de estados finitos que sequencia as operações do BO, gerando os sinais de controle necessários para cada etapa do cálculo SSD.
 
 ## Outras observações
 
 Este projeto proporcionou um aprendizado significativo no design digital com VHDL, sendo integralmente baseado nos diagramas apresentados nas aulas teóricas, incluindo a máquina de estados para o Bloco de Controle (BC) e a arquitetura do Bloco Operativo (BO).
 
-O maior desafio durante o processo foi compreender a implementação e o uso de generics para parametrizar o circuito. A depuração de erros relacionados a esses parâmetros no Quartus II, como a ordem de declaração e a chamada de funções auxiliares, exigiu um entendimento mais aprofundado de como o VHDL lida com a configuração de hardware. A experiência com o VPL foi valiosa para o desenvolvimento inicial, mas a transição para ferramentas como ModelSim e Quartus foi essencial para a análise de temporização e a síntese real do hardware.
+O maior desafio durante o processo foi compreender a implementação e o uso de generics para parametrizar o circuito. A depuração de erros relacionados a esses parâmetros no Quartus II, como a ordem de declaração e a chamada de funções auxiliares, exigiu um entendimento mais aprofundado de como o VHDL lida com a configuração de hardware. A experiência com o GTKWave foi fundamental para a análise detalhada do comportamento do circuito, permitindo a visualização clara das transições de estado, sinais de controle e resultados do SSD.
 
-A modularidade do design, com a separação clara entre o Bloco Operativo (datapath) e o Bloco de Controle (máquina de estados), mostrou-se uma estratégia eficaz para gerenciar a complexidade. Embora esta atividade tenha focado na implementação da SAD v1, a arquitetura parametrizável, notavelmente através do parallel_samples no generic da entidade top-level, já estabelece uma base sólida para futuras implementações, como a SAD v3, que visa processar múltiplas amostras em paralelo para otimizar o desempenho.
+A modularidade do design, com a separação clara entre o Bloco Operativo (datapath) e o Bloco de Controle (máquina de estados), mostrou-se uma estratégia eficaz para gerenciar a complexidade. A arquitetura parametrizável, especialmente através do `parallel_samples` no generic da entidade top-level, estabelece uma base sólida para futuras otimizações e ampliações do projeto, como o processamento paralelo de múltiplas amostras para ganho de desempenho.
+
+---
