@@ -1,14 +1,3 @@
---------------------------------------------------
---	Author:      Ismael Seidel (entidade)
---	Created:     May 1, 2025
---
---	Project:     Exercício 6 de INE5406
---	Description: Contém a descrição de uma entidade para um multiplexador
---               2:1 parametrizável para N bits. A saída `y` será igual a
---               `in_0` quando `sel = '0'`, e igual a `in_1` quando `sel = '1'`.
---               As entradas e saídas são vetores com N bits.
---------------------------------------------------
-
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -25,17 +14,9 @@ entity mux_2to1 is
 		y          : out std_logic_vector(N - 1 downto 0)  -- saída do mux
 	);
 end mux_2to1;
--- Não altere a definição da entidade!
--- Ou seja, não modifique o nome da entidade, nome das portas e tipos/tamanhos das portas!
-
--- Não alterar o nome da arquitetura!
 architecture behavior of mux_2to1 is
-    -- Se precisar, podes adicionar declarações aqui (remova este comentário).
+   
 begin
-    -- Preencher aqui (remova este comentário).
-    -- A arquitetura deve selecionar entre as entradas `in_0` e `in_1`
-    -- com base no valor de `sel`, atribuindo o resultado à saída `y`.
-    -- Essa seleção pode ser feita com um operador `when ... else`.
     y <= in_0 when sel = '0'
     else in_1 when sel = '1';
 end architecture behavior;
