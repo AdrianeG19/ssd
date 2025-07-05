@@ -4,6 +4,6 @@ for i in range(64):
     a = randint(0, 255)
     b = randint(0, 255)
     parcial = (a-b)**2
-    print(f"{a:020b}", f"{b:020b}")
+    print(a, b)
     acumulado += parcial
-print(f"{acumulado:020b}")
+print(acumulado)
