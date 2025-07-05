@@ -1,26 +1,57 @@
 {
     "dupla": {
-        "nome": "dupla X",
+        "nome": "AP3-02208A-Grupo-D",
         "alunos": [
-          {"nome": "Gustavo Adriane de Almeida Guiumarães e Silva", "matricula": "24208994"},
-          {"nome": "Maria Eduarda da Silva Maria", "matricula": "24200387"}
+            {"nome": "Gustavo Adriane de Almeida Guimarães e Silva", "matricula": "24208994"},
+            {"nome": "Vinicius de Campos Pereira", "matricula": "20103807"},
+            {"nome": "Miguel Estivalet Pinto", "matricula": "24204068"},
+            {"nome": "Luiz Felipe Machado Athayde", "matricula": "24206765"},
+            {"nome": "Elisa Belquis de Assumpcao", "matricula": "24202220"}
         ]
     },
     "quartus": {
         "os": "Windows 11",
-        "versao": "13.0.1 (completar)",
+        "versao": "13.0.1",
         "fpga": {
             "familia": "Cyclone II",
             "dispositivo": "EP2C5AF256A7"
         }
     },
     "utilizacao": {
-        "total combinational functions": 58,
+        "total logic elements": 58,
+        "total combinational functions": 35,
         "dedicated logic registers": 57,
-        "total pins": 41
+        "total registers": 57,
+        "total pins": 41,
+        "total virtual pins": 0,
+        "total memory bits": 0,
+        "embedded multiplier 9-bit elements": 1,
+        "total plls": 0
     },
     "atraso": {
-        "Fmax": 169.32,
+        "Fmax": 108.96,
         "unidade": "MHz"
-    }
+    },
+    "setup_times": [
+        {"data_port": "enable", "clock_port": "clk", "rise_ns": 3.509, "fall_ns": 3.509},
+        {"data_port": "sample_can[*]", "clock_port": "clk", "rise_ns": 4.602, "fall_ns": 4.602},
+        {"data_port": "sample_can[0]", "clock_port": "clk", "rise_ns": 4.205, "fall_ns": 4.205},
+        {"data_port": "sample_can[1]", "clock_port": "clk", "rise_ns": 4.602, "fall_ns": 4.602},
+        {"data_port": "sample_can[2]", "clock_port": "clk", "rise_ns": 4.241, "fall_ns": 4.241},
+        {"data_port": "sample_can[3]", "clock_port": "clk", "rise_ns": 3.963, "fall_ns": 3.963},
+        {"data_port": "sample_can[4]", "clock_port": "clk", "rise_ns": 4.234, "fall_ns": 4.234},
+        {"data_port": "sample_can[5]", "clock_port": "clk", "rise_ns": 4.242, "fall_ns": 4.242},
+        {"data_port": "sample_can[6]", "clock_port": "clk", "rise_ns": 3.909, "fall_ns": 3.909},
+        {"data_port": "sample_can[7]", "clock_port": "clk", "rise_ns": 0.412, "fall_ns": 0.412},
+        {"data_port": "sample_ori[*]", "clock_port": "clk", "rise_ns": 4.719, "fall_ns": 4.719},
+        {"data_port": "sample_ori[0]", "clock_port": "clk", "rise_ns": 4.716, "fall_ns": 4.716},
+        {"data_port": "sample_ori[1]", "clock_port": "clk", "rise_ns": 4.088, "fall_ns": 4.088},
+        {"data_port": "sample_ori[2]", "clock_port": "clk", "rise_ns": 4.688, "fall_ns": 4.688},
+        {"data_port": "sample_ori[3]", "clock_port": "clk", "rise_ns": 4.067, "fall_ns": 4.067},
+        {"data_port": "sample_ori[4]", "clock_port": "clk", "rise_ns": 4.399, "fall_ns": 4.399},
+        {"data_port": "sample_ori[5]", "clock_port": "clk", "rise_ns": 4.702, "fall_ns": 4.702},
+        {"data_port": "sample_ori[6]", "clock_port": "clk", "rise_ns": 4.719, "fall_ns": 4.719},
+        {"data_port": "sample_ori[7]", "clock_port": "clk", "rise_ns": 0.485, "fall_ns": 0.485}
+    ],
+    "clock_constraint": "create_clock -name clk -period 10.0 [get_ports clk]"
 }
