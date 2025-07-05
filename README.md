@@ -2,10 +2,13 @@
 
 Este projeto VHDL implementa um somador de diferença quadrática (SSD - Sum of Squared Differences). O desenvolvimento, simulação e análise de temporização foram realizados utilizando **Quartus II** para síntese e **GTKWave** para visualização das formas de onda.
 
-## Grupo xxx
+## Grupo AP3-02208A-Grupo-D
 
 - Gustavo Adriane de Almeida Guimarães e Silva (Matrícula 24208994)
-- 
+- Vinicius de Campos Pereira (Matrícula 20103807)
+- Miguel Estivalet Pinto (Matrícula 24204068)
+- Luiz Felipe Machado Athayde (Matrícula 24206765)
+- Elisa Belquis de Assumpcao (Matrícula 24202220)
 
 ## Descrição
 
