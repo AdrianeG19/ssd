@@ -12,7 +12,7 @@ entity signed_subtractor is
 	port(
 		input_a    : in  signed(N - 1 downto 0); -- entrada A com N bits com sinal
 		input_b    : in  signed(N - 1 downto 0); -- entrada B com N bits com sinal
-		difference : out signed(N - 1 downto 0)  -- saída da subtração
+		difference : out signed(N - 1 downto 0)  -- saída da subtração (talvez colocar N bits para overflow?)
 	);
 end signed_subtractor;
 architecture arch of signed_subtractor is

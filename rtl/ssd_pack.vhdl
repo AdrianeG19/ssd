@@ -106,15 +106,17 @@ package body ssd_pack is
     -- Internamente usa a função sum_of_values_length passando o número total de amostras.
     function ssd_length(bits_per_sample : positive; samples_per_block : positive)
     return positive is
+        constant max_sq_diff_bits : positive := 2 * bits_per_sample + 1; -- Máximo de bits para a diferença quadrática 
     begin
-        return sum_of_values_length(bits_per_value => bits_per_sample, number_of_values => samples_per_block);
+        return sum_of_values_length(bits_per_value => max_sq_diff_bits, number_of_values => samples_per_block);
     end function ssd_length;
 
     -- Função semelhante à anterior, mas para SSD parciais (paralelismo).
     function partial_ssd_length(bits_per_sample : positive; parallel_samples : positive)
     return positive is
+        constant max_sq_diff_bits : positive := 2 * bits_per_sample + 1; -- Máximo de bits para a diferença quadrática 
     begin
-        return sum_of_values_length(bits_per_value => bits_per_sample, number_of_values => parallel_samples);
+        return sum_of_values_length(bits_per_value => max_sq_diff_bits, number_of_values => parallel_samples);
     end function partial_ssd_length;
 
     -- Função que determina a largura do endereço (em bits) necessário para indexar os

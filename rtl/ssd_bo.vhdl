@@ -25,10 +25,13 @@ entity ssd_bo is
         amostraB : in unsigned (CFG.bits_per_sample - 1 downto 0);
 
         -- Saída do valor final do SSD
-        ssd : out std_logic_vector (partial_ssd_length (CFG.bits_per_sample, CFG.samples_per_block) - 1 downto 0);
+        ssd : out std_logic_vector (ssd_length (CFG.bits_per_sample, CFG.samples_per_block) - 1 downto 0);
         
         -- Saída do endereço atual de processamento
-        address: out std_logic_vector(5 downto 0);
+        address: out std_logic_vector(address_length(CFG.samples_per_block, CFG.parallel_samples) - 1 downto 0); -- Para qualquer quantidade de amostras
+
+        -- Saída do valor parcial do SSD   
+        ssd_partial: out std_logic_vector(partial_ssd_length (CFG.bits_per_sample, CFG.parallel_samples) - 1 downto 0); 
 
         -- Sinais de controle dos registradores e muxes
         cpA : in std_logic;      -- Habilita registro da amostra A
@@ -49,7 +52,7 @@ architecture structure OF ssd_bo is
 
     -- Registrador para armazenar o quadrado da diferença entre as amostras
     -- O tamanho é dobrado para evitar overflow no cálculo do quadrado
-    signal saidaAbs : unsigned(CFG.bits_per_sample * 2 + 1 downto 0);
+    signal saidaSqDif : unsigned(CFG.bits_per_sample * 2 + 1 downto 0);
 
     -- Registradores para soma acumulada e valor final do SSD
     signal entradaSomaAcumulativa, saidaRegSoma, ssdUnsigned : unsigned(partial_ssd_length (CFG.bits_per_sample, CFG.samples_per_block) - 1 downto 0);
@@ -61,9 +64,12 @@ architecture structure OF ssd_bo is
     signal saidaMuxSoma, saidaSomareduzida : std_logic_vector (partial_ssd_length (CFG.bits_per_sample, CFG.samples_per_block) - 1 downto 0);
 
     -- Sinais para controle de endereço
-    signal saidaMuxEnd : std_logic_vector(6 downto 0); -- Saída do mux de endereço
-    signal saidaRegEnd, soma : unsigned(6 downto 0);   -- Registrador de endereço e incremento
-    signal saidaRegreduzida : unsigned (5 downto 0);   -- Endereço reduzido para 6 bits
+    -- mudar para paralelismo?
+    signal saidaMuxEnd : std_logic_vector(address_length(CFG.samples_per_block, CFG.parallel_samples) downto 0); -- Saída do mux de endereço (+1 bit pra carry)
+    signal saidaRegEnd, soma : unsigned(address_length(CFG.samples_per_block, CFG.parallel_samples) downto 0);   -- Registrador de endereço e incremento (+1 bit pra carry)
+    signal saidaRegreduzida : unsigned (address_length(CFG.samples_per_block, CFG.parallel_samples) - 1 downto 0);   -- Endereço reduzido
+
+    signal saidaParcial : unsigned(partial_ssd_length(CFG.bits_per_sample, CFG.parallel_samples) - 1 downto 0);
 
 begin
     -- Registro das amostras de entrada A e B
@@ -98,11 +104,12 @@ begin
     port map (
         input_a => saidaRegA,
         input_b => saidaRegB,
-        sq_diff => saidaAbs
+        sq_diff => saidaSqDif
     );
-
+    
+    ssd_partial <= std_logic_vector(saidaSqDif);
     -- Ajusta o tamanho do quadrado da diferença para o acumulador, evitando overflow
-    entradaSomaAcumulativa <= resize (saidaAbs, partial_ssd_length (CFG.bits_per_sample, CFG.samples_per_block));
+    entradaSomaAcumulativa <= resize (saidaSqDif, partial_ssd_length (CFG.bits_per_sample, CFG.samples_per_block));
 
     -- Soma acumulada do SSD: soma o valor anterior com o novo quadrado da diferença
     somador : entity work.unsigned_adder(arch) 
@@ -160,7 +167,7 @@ begin
     -- Controle de endereço: Mux para selecionar entre incremento ou reset do endereço
     muxEndereco : entity work.mux_2to1(behavior)
     generic map (
-        N => 7
+        N => address_length(CFG.samples_per_block, CFG.parallel_samples) + 1
     )
     port map(
         sel => zi,
@@ -172,7 +179,7 @@ begin
     -- Registrador para armazenar o endereço atual
     regEndereco : entity work.unsigned_register(behavior)
     generic map (
-        N => 7
+        N => address_length(CFG.samples_per_block, CFG.parallel_samples) + 1
     )
     port map (
         clk => clk,
@@ -182,20 +189,20 @@ begin
     );
 
     -- Sinal de controle do laço: indica se o endereço ainda está dentro do bloco
-    menor <= not std_logic(saidaRegEnd(6));
+    menor <= not std_logic(saidaRegEnd(address_length(CFG.samples_per_block, CFG.parallel_samples)));
 
-    -- Reduz o endereço para 6 bits (máximo 64 posições)
-    saidaRegreduzida <= saidaRegEnd(5 downto 0);
+    -- Reduz o endereço para o tamanho correto
+    saidaRegreduzida <= saidaRegEnd(address_length(CFG.samples_per_block, CFG.parallel_samples) - 1 downto 0);
     address <= std_logic_vector(saidaRegreduzida);
 
     -- Soma o endereço atual com 1 para obter o próximo endereço
     somadorEnd : entity work.unsigned_adder(arch)
     generic map (
-        N => 6
+        N => address_length(CFG.samples_per_block, CFG.parallel_samples)
     )
     port map (
         input_a => saidaRegreduzida,
-        input_b => "000001",
+        input_b => to_unsigned(1, address_length(CFG.samples_per_block, CFG.parallel_samples)),
         sum => soma
     );
     

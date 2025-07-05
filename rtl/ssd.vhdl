@@ -35,7 +35,7 @@ entity ssd is
             bits_per_sample   => bits_per_sample,
             samples_per_block => samples_per_block
         ) - 1 downto 0);                -- resultado final da SSD
-        ssd_partial: out std_logic_vector(13 downto 0); -- <--- ADICIONE ESTA LINHA
+        ssd_partial: out std_logic_vector(partial_ssd_length(bits_per_sample, parallel_samples) - 1 downto 0);  -- valor parcial do SSD
         done       : out std_logic      -- indica término do processamento
     );
 end entity ssd;
@@ -77,6 +77,7 @@ begin
         amostraB => amostraB,
         ssd => ssd_value, -- resultado final da SSD
         address => address,
+        ssd_partial => ssd_partial, -- controle do valor parcial do SSD
         menor => menor
     );
     
