@@ -17,7 +17,7 @@ signal sample_ori, sample_can: std_logic_vector(15 downto 0); -- 16 bits, ajuste
 signal ssd_value: std_logic_vector(19 downto 0);
 signal read_mem, done: std_logic;
 signal address: std_logic_vector(5 downto 0);
-signal finished: std_logic := '0';
+signal finished: std_logic := '0'; --aaaaaaaaaa
 
 constant period : time := 10 ns;
 

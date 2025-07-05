@@ -1,3 +1,6 @@
+cd C:\Users\elisa\Downloads\ssd\rtl
+
+ghdl --clean
 ghdl -a --std=08 ssd_pack.vhdl
 ghdl -a --std=08 mux_2to1.vhdl
 ghdl -a --std=08 signed_subtractor.vhdl
@@ -6,8 +9,8 @@ ghdl -a --std=08 unsigned_register.vhdl
 ghdl -a --std=08 square_difference.vhdl
 ghdl -a --std=08 ssd_bc.vhdl
 ghdl -a --std=08 ssd_bo.vhdl
-ghdl -a --std=08 SSD.vhdl
-ghdl -a --std=08 testbench.vhd
-ghdl -r --std=08 testbench --wave=testbench.ghw
+ghdl -a --std=08 ssd.vhdl
+ghdl -a --std=08 testbench2.vhdl
+ghdl -r --std=08 testbench2 --wave=testbench2.ghw
 
-gtkwave testbench.ghw
+gtkwave testbench2.ghw
