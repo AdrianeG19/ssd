@@ -31,7 +31,7 @@ entity ssd_bo is
         address: out std_logic_vector(address_length(CFG.samples_per_block, CFG.parallel_samples) - 1 downto 0); -- Para qualquer quantidade de amostras
 
         -- Saída do valor parcial do SSD   
-        ssd_partial: out std_logic_vector(partial_ssd_length (CFG.bits_per_sample, CFG.parallel_samples) - 1 downto 0); 
+        ssd_partial: out std_logic_vector(2 * CFG.bits_per_sample + 1 downto 0);
 
         -- Sinais de controle dos registradores e muxes
         cpA : in std_logic;      -- Habilita registro da amostra A

@@ -1,0 +1,11 @@
+# Ignorar arquivos de waveform do GHDL/GTKWave
+*.ghw
+*.vcd
+
+# Ignorar arquivos de trabalho do GHDL
+*.cf
+work-obj*.cf
+
+# Outros arquivos que geralmente não são versionados
+*.o
+*.exe

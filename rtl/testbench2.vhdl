@@ -2,9 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use std.textio.all;
-ghdl:error: bound check failure at ssd_bo.vhdl:108
-  instance: /testbench2/dut/blocooperador/P0
-ghdl:error: simulation faileduse work.ssd_pack.all;
+use work.ssd_pack.all; 
 
 entity testbench2 is
 end entity testbench2;
@@ -24,7 +22,7 @@ architecture behavioral of testbench2 is
     signal read_mem   : std_logic;
     signal address    : std_logic_vector(address_length(samples_per_block, parallel_samples) - 1 downto 0); -- log2(64) = 6 bits
     signal ssd_value  : std_logic_vector(ssd_length(bits_per_sample, samples_per_block) - 1 downto 0); -- 8 bits * 64 = 16 bits suficientes
-    signal ssd_partial: std_logic_vector(partial_ssd_length(bits_per_sample, parallel_samples) - 1 downto 0); -- valor parcial do DUT
+    signal ssd_partial: std_logic_vector(2 * bits_per_sample + 1 downto 0); -- valor parcial do DUT
     signal done       : std_logic;
 
     -- Arquivo de entrada (.dat)
